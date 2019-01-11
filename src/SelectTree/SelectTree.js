@@ -8,7 +8,16 @@ import cloneDeep from 'lodash.clonedeep';
 
 import './SelectTree.styl';
 
-class SelectTree extends Component {
+export default class SelectTree extends Component {
+  static propTypes = {
+    searchEnabled: PropTypes.bool,
+    selectTreeFirstTitle: PropTypes.string,
+    selectTreeSecondTitle: PropTypes.string,
+    onComponentChange: PropTypes.func,
+    items: PropTypes.array.isRequired,
+    onSelected: PropTypes.func.isRequired
+  };
+
   static defaultProps = {
     searchEnabled: true,
     selectTreeFirstTitle: 'First Level itens',
@@ -162,14 +171,3 @@ class SelectTree extends Component {
     });
   };
 }
-
-SelectTree.propTypes = {
-  searchEnabled: PropTypes.bool,
-  selectTreeFirstTitle: PropTypes.string,
-  selectTreeSecondTitle: PropTypes.string,
-  onComponentChange: PropTypes.func,
-  items: PropTypes.array.isRequired,
-  onSelected: PropTypes.func.isRequired
-};
-
-export default SelectTree;
